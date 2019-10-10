@@ -15,9 +15,13 @@ Route::get('home', function () {
     return view('welcome');
 });
 
-Route::get('login','LoginController@getLogin');
 
 Route::post('login','LoginController@postLogin');
+
+Route::get('login', ['as' => 'login', 'uses' => 'LoginController@getLogin']);
+
+Route::get('logout', 'LogoutController@logout');
+
 
 Route::get('','HomeController@getIndex');
 

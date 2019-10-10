@@ -14,6 +14,9 @@ use App\User;
 class LoginController extends Controller
 {
     public function getLogin() {
+		if (Auth::check()) {
+			return redirect()->intended('/');
+		}
         return view('login');
     }
 
@@ -45,4 +48,9 @@ class LoginController extends Controller
     		}
         }
 	}
+
+	public function logout(Request $request) {
+		Auth::logout();
+		return redirect('/login');
+	  }
 }

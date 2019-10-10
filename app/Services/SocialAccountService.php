@@ -18,7 +18,7 @@ class SocialAccountService
         // SocialAccount::whereProvider($social)
         //     ->whereProviderUserId($providerUser->getId())->delete();
         //exit;
-        
+
         if ($account) {
             return $account->user;
         } else {
